@@ -1,0 +1,30 @@
+{
+  "name": "as-milano/yii2-minify",
+  "description": "Yii2 View component with minification css & js",
+  "keywords": [
+    "yii2",
+    "minify",
+    "view",
+    "js",
+    "css"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "NecroMan",
+      "email": "nm666@bk.ru",
+      "homepage": "http://as-milano.ru/"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0",
+    "mrclay/minify": "~2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "milano\\minify\\": ""
+    }
+  }
+}
