@@ -61,6 +61,8 @@ class View extends \yii\web\View
      * copy) or 'time' - with filemtime (faster, better for production) */
     public $hashMethod = 'sha';
 
+    /** @var string Regex for ignoring CSS and JS files like TinyMCE and ElFinder */
+    public $ignore = '';
     /**
      * @throws Exception
      */
@@ -333,13 +335,20 @@ class View extends \yii\web\View
     }
 
     /**
+     * @param string $text
+     * @return int
+     */
+    protected function isIgnored($text) {
+        return preg_match('#' . $this->ignore . '#i', $text);
+    }
+    /**
      * @param string $file
      * @param string $html
      * @return bool
      */
     protected function thisFileNeedMinify($file, $html)
     {
-        return !$this->isUrl($file, false) && !$this->isContainsConditionalComment($html);
+        return !$this->isUrl($file, false) && !$this->isContainsConditionalComment($html) && !$this->isIgnored($file);
     }
 
     /**
