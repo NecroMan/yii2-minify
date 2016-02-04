@@ -339,7 +339,7 @@ class View extends \yii\web\View
      * @return int
      */
     protected function isIgnored($text) {
-        return preg_match('#' . $this->ignore . '#i', $text);
+        return $text && preg_match('#' . $this->ignore . '#i', $text);
     }
     /**
      * @param string $file
